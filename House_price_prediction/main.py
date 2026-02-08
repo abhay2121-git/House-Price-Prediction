@@ -38,14 +38,43 @@ def main():
         # Visualize results
         predictor.visualize_results()
         
-        # Optional: Interactive prediction (commented out for automated runs)
-        # Uncomment the following lines if you want interactive predictions:
-        # while True:
-        #     choice = input("\nWould you like to predict a custom house price? (y/n): ").lower()
-        #     if choice == 'y':
-        #         predictor.predict_custom()
-        #     else:
-        #         break
+        # Interactive user input prediction
+        print("\n" + "="*70)
+        print("Would you like to enter your own house values? (y/n): ")
+        
+        try:
+            choice = input().strip().lower()
+            
+            if choice == 'y':
+                print("\n" + "="*70)
+                print("ENTER YOUR HOUSE VALUES")
+                print("="*70)
+                
+                # Get user input for each feature
+                medinc = float(input("Median Income (in $10k, e.g., 8.5 for $85k): "))
+                houseage = float(input("House Age (in years): "))
+                avelrooms = float(input("Average Rooms per household: "))
+                avebedrms = float(input("Average Bedrooms per household: "))
+                population = float(input("Block Population: "))
+                aveoccup = float(input("Average Occupancy per household: "))
+                latitude = float(input("Latitude (e.g., 37.8 for SF): "))
+                longitude = float(input("Longitude (e.g., -122.4 for SF): "))
+                
+                # Predict with user values
+                predictor.predict_sample_house(
+                    medinc=medinc, houseage=houseage, avelrooms=avelrooms,
+                    avebedrms=avebedrms, population=population, aveoccup=aveoccup,
+                    latitude=latitude, longitude=longitude
+                )
+            else:
+                print("Using default sample values above.")
+                
+        except (EOFError, KeyboardInterrupt):
+            print("\nUsing default sample values above.")
+        except ValueError:
+            print("\nInvalid input! Please enter valid numbers. Using default sample values above.")
+        except Exception as e:
+            print(f"Input error: {str(e)}. Using default sample values above.")
         
         print("\n" + "="*70)
         print("ANALYSIS COMPLETE!")
