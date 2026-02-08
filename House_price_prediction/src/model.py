@@ -169,12 +169,12 @@ class CaliforniaHousePricePredictor:
         return test_r2, test_rmse, test_mae
     
     def predict_custom(self):
-        """Interactive price prediction"""
+        """Interactive price prediction with error handling"""
         print("="*70)
         print("CUSTOM HOUSE PRICE PREDICTION")
         print("="*70)
         
-        print("\nEnter house features:")
+        print("\nEnter house features (or 'quit' to exit):")
         
         features = {}
         feature_descriptions = {
@@ -188,21 +188,41 @@ class CaliforniaHousePricePredictor:
             'Longitude': 'Longitude'
         }
         
-        for feature in self.feature_names:
-            value = float(input(f"  {feature_descriptions[feature]}: "))
-            features[feature] = value
-        
-        # Create input array
-        input_df = pd.DataFrame([features])
-        input_scaled = self.scaler.transform(input_df)
-        
-        # Predict
-        prediction = self.model.predict(input_scaled)[0]
-        
-        print(f"\n{'='*70}")
-        print(f"PREDICTED HOUSE PRICE: ${prediction * 100000:,.2f}")
-        print(f"                       (${prediction:.2f} in $100k)")
-        print(f"{'='*70}\n")
+        try:
+            for feature in self.feature_names:
+                while True:
+                    user_input = input(f"  {feature_descriptions[feature]}: ").strip()
+                    
+                    if user_input.lower() == 'quit':
+                        print("Exiting prediction mode...")
+                        return
+                    
+                    try:
+                        value = float(user_input)
+                        if value >= 0:  # Basic validation
+                            features[feature] = value
+                            break
+                        else:
+                            print("    Please enter a positive number.")
+                    except ValueError:
+                        print("    Please enter a valid number.")
+            
+            # Create input array
+            input_df = pd.DataFrame([features])
+            input_scaled = self.scaler.transform(input_df)
+            
+            # Predict
+            prediction = self.model.predict(input_scaled)[0]
+            
+            print(f"\n{'='*70}")
+            print(f"PREDICTED HOUSE PRICE: ${prediction * 100000:,.2f}")
+            print(f"                       (${prediction:.2f} in $100k)")
+            print(f"{'='*70}\n")
+            
+        except KeyboardInterrupt:
+            print("\n\nPrediction cancelled by user.")
+        except Exception as e:
+            print(f"\nError during prediction: {str(e)}")
     
     def visualize_results(self):
         """Create comprehensive visualizations"""

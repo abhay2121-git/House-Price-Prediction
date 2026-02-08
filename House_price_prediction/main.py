@@ -38,6 +38,15 @@ def main():
         # Visualize results
         predictor.visualize_results()
         
+        # Optional: Interactive prediction (commented out for automated runs)
+        # Uncomment the following lines if you want interactive predictions:
+        # while True:
+        #     choice = input("\nWould you like to predict a custom house price? (y/n): ").lower()
+        #     if choice == 'y':
+        #         predictor.predict_custom()
+        #     else:
+        #         break
+        
         print("\n" + "="*70)
         print("ANALYSIS COMPLETE!")
         print("="*70 + "\n")
