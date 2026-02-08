@@ -12,6 +12,7 @@ import os
 from data_loader import load_data, inspect_data
 from preprocessing import handle_missing_values, encode_categorical_features, scale_features
 from model import HousePriceModel
+from src.data_loader import load_data, inspect_data
 
 def train_model(data_path: str, target_column: str, model_type: str = 'linear', 
                 test_size: float = 0.2, random_state: int = 42) -> dict:

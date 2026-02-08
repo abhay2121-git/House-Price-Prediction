@@ -10,8 +10,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.metrics import mean_squared_error, r2_score, mean_absolute_error
 from typing import Dict, Any, List
-from model import HousePriceModel
-
+from src.model import HousePriceModel
 
 
 def load_model(model_path: str = 'artifacts/model.joblib') -> Any:

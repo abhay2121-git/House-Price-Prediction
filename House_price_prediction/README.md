@@ -1,3 +1,27 @@
+<<<<<<< HEAD
+# Customer Shopping Data Analysis
+
+This project performs end-to-end exploratory data analysis (EDA) on a real-world customer shopping dataset using Python.
+
+## Tools & Libraries
+- NumPy
+- Pandas
+- Matplotlib
+- Seaborn
+
+## Analysis Highlights
+- Statistical analysis of purchase behavior
+- Revenue and customer insights by category, gender, age group, and shopping mall
+- Monthly revenue trends
+- Outlier detection and distribution analysis
+- Correlation analysis between numerical features
+
+## Objective
+To strengthen core data analysis skills and demonstrate the ability to convert raw transactional data into meaningful business insights.
+
+## Visual Output
+All key insights are visualized using Matplotlib and Seaborn with a clean, structured layout.
+=======
 # House Price Prediction
 
 A machine learning project for predicting house prices using various regression models.
@@ -143,3 +167,4 @@ plot_predictions_vs_actual(y_test.values, y_pred)
 2. Start with exploratory data analysis using `visual/eda_plots.py`
 3. Train your first model using `src/train.py`
 4. Evaluate and visualize results using `src/evaluate.py` and `visual/model_plots.py`
+>>>>>>> e69c50c5c5753df614752222e6aea10ce4c65410
