@@ -167,76 +167,7 @@ class CustomerShoppingAnalysis:
         plt.savefig("Customer_Shopping_Visualization", )
         plt.show()
 
-
-    # # INDIVIDUAL MATPLOTLIB VISUALS
-    # def matplotlib_visuals(self):
-    #     # Monthly revenue trend
-    #     monthly_revenue = self.df.groupby('month')['purchase_amount'].sum()
-
-    #     plt.figure()
-    #     monthly_revenue.plot()
-    #     plt.title("Monthly Revenue Trend")
-    #     plt.xlabel("Month")
-    #     plt.ylabel("Revenue")
-    #     plt.tight_layout()
-    #     plt.show()
-
-    #     # Revenue per category
-    #     category_revenue = self.df.groupby('category')['purchase_amount'].sum()
-
-    #     plt.figure()
-    #     category_revenue.plot(kind='bar')
-    #     plt.title("Revenue per Category")
-    #     plt.xlabel("Category")
-    #     plt.ylabel("Revenue")
-    #     plt.tight_layout()
-    #     plt.show()
-
-    #     # Purchase amount distribution
-    #     plt.figure()
-    #     plt.hist(self.df['purchase_amount'], bins=30)
-    #     plt.title("Purchase Amount Distribution")
-    #     plt.xlabel("Purchase Amount")
-    #     plt.ylabel("Frequency")
-    #     plt.tight_layout()
-    #     plt.show()
-
-
-    # # INDIVIDUAL SEABORN VISUALS
-    # def seaborn_visuals(self):
-    #     # KDE plot
-    #     plt.figure()
-    #     sns.kdeplot(self.df['purchase_amount'], fill=True)
-    #     plt.title("KDE of Purchase Amount")
-    #     plt.tight_layout()
-    #     plt.show()
-
-    #     # Boxplot: purchase amount vs category
-    #     plt.figure()
-    #     sns.boxplot(x='category', y='purchase_amount', data=self.df)
-    #     plt.title("Outliers by Category")
-    #     plt.xticks(rotation=45)
-    #     plt.tight_layout()
-    #     plt.show()
-
-    #     # Countplot: purchases by category
-    #     plt.figure()
-    #     sns.countplot(x='category', data=self.df)
-    #     plt.title("Purchase Count per Category")
-    #     plt.xticks(rotation=45)
-    #     plt.tight_layout()
-    #     plt.show()
-
-    #     # Correlation heatmap
-    #     numeric_cols = ['age', 'quantity', 'price', 'purchase_amount']
-    #     corr = self.df[numeric_cols].corr()
-
-    #     plt.figure()
-    #     sns.heatmap(corr, annot=True, cmap='coolwarm')
-    #     plt.title("Correlation Heatmap")
-    #     plt.tight_layout()
-    #     plt.show()
-
+        
 
 file_path = r"C:\Users\Abhay\OneDrive\Documents\Customer_Shopping_Datasett.xlsx"
 obj = CustomerShoppingAnalysis(file_path)
